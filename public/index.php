@@ -99,6 +99,10 @@ $map->post('admin.auth', '/admin/auth', [
     'controller'    => 'App\Controllers\AdminController',
     'action'        => 'postAuthAdmin'
 ]);
+$map->get('admin.logout', '/admin/logout', [
+   'controller'     => 'App\Controllers\AdminController',
+   'action'         => 'getLogout'
+]);
 $map->get('admin.addUser', '/admin/users/add', [
     'controller'    => 'App\Controllers\UsersController',
     'action'        => 'getAddUser'

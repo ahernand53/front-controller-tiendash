@@ -20,7 +20,6 @@ class AdminController extends BaseController {
     public function postAuthAdmin()
     {
         $postData = $_POST;
-        var_dump($postData);
         $responseMessage = null;
 
         /*$user = AdminUser::where('email', $postData['email'])->first();
@@ -36,10 +35,17 @@ class AdminController extends BaseController {
         }*/
             if (password_verify($postData['password'], password_hash('123456', PASSWORD_DEFAULT))) {
                 $_SESSION['adminId'] = 1;
-                return new RedirectResponse('/admin/home');
+                header('Location: /admin/home');
             } else {
                 $responseMessage = 'Bad credentials';
+                header('Location: /admin/login?message='. $responseMessage);
             }
 
+    }
+
+    public function getLogout()
+    {
+        session_destroy();
+        header('Location: /admin/login');
     }
 }

@@ -18,7 +18,7 @@ class AuthController extends BaseController {
         if($user) {
             if (password_verify($postData['password'], $user->password)) {
                 $_SESSION['userId'] = $user->id;
-                return new RedirectResponse('/');
+                header('Location: /');
             } else {
                 $responseMessage = 'Bad credentials';
             }
@@ -26,9 +26,7 @@ class AuthController extends BaseController {
             $responseMessage = 'Bad credentials';
         }
 
-        return $this->renderHTML('login.twig', [
-            'responseMessage' => $responseMessage
-        ]);
+
     }
 
     public function getLogout() {

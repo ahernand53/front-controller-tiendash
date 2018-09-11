@@ -17,6 +17,7 @@
 <body>
   <div class="container">
       <h2>Welcome to Index</h2>
+      <a href="/login">Iniciar session</a>
   </div>
 
   <!-- Optional JavaScript -->
