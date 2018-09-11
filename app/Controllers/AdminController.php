@@ -25,24 +25,20 @@ class AdminController extends BaseController {
         $postData = $request->getParsedBody();
         $responseMessage = null;
 
-        /*$user = AdminUser::where('email', $postData['email'])->first();
+        $user = AdminUser::where('email', $postData['email'])->first();
         if($user) {
             if (password_verify($postData['password'], $user->password)) {
                 $_SESSION['adminId'] = $user->id;
-                return new RedirectResponse('/admin/home');
+                header('Location: /admin/home');
+                exit;
             } else {
                 $responseMessage = 'Bad credentials';
             }
         } else {
             $responseMessage = 'Bad credentials';
-        }*/
-            if (password_verify($postData['password'], password_hash('123456', PASSWORD_DEFAULT))) {
-                $_SESSION['adminId'] = 1;
-                header('Location: /admin/home');
-            } else {
-                $responseMessage = 'Bad credentials';
-                header('Location: /admin/login?message='. $responseMessage);
-            }
+        }
+
+        header('Location: /admin/login?message=' . $responseMessage);
 
     }
 

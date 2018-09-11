@@ -20,7 +20,6 @@
           <div class="col-lg-4 col-md-4 col-xs-12">
               <h2>Welcome to Index</h2>
           </div>
-            <?php var_dump(password_hash('123456', PASSWORD_DEFAULT)); ?>
           <?php if (!isset($_SESSION['userId'])): ?>
               <a class="btn btn-primary" href="/login">Iniciar Session</a>
           <?php else: ?>
