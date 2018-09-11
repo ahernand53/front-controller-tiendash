@@ -12,7 +12,9 @@
 <body>
 <div class="container">
     <div class="form_top">
-        <img src="./images/logo.png" alt="">
+        <a href="/">
+            <img class="login_img" src="../images/logo.png">
+        </a>
     </div>
     <form class="form_reg">
         <input class="input" type="text" placeholder="&#128113; Nombres" required autofocus>
@@ -29,5 +31,6 @@
         </div>
     </form>
 </div>
+
 </body>
 </html>
