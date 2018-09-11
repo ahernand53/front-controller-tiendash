@@ -8,6 +8,10 @@ use Zend\Diactoros\Response\RedirectResponse;
 
 class AdminController extends BaseController {
 
+    /**
+     * Funcion que llama a la pagina inicial de administradores
+     * Obligatorio estar logeado antes de entrar a este metodo
+     */
     public function getIndex()
     {
         $users = User::all();
@@ -15,11 +19,22 @@ class AdminController extends BaseController {
         include '../views/Admin/index.php';
     }
 
+    /**
+     * Funcion para llamar la pagina de login de administradores
+     */
     public function getLoginAdmin()
     {
         include '../views/Admin/login.php';
     }
 
+    /**
+     * @param $request
+     *
+     * Funcion que hace el login de administradores,
+     * Se verifica si existe y redirecciona a la pagina de
+     * home de los administradores
+     *
+     */
     public function postAuthAdmin($request)
     {
         $postData = $request->getParsedBody();
@@ -42,6 +57,11 @@ class AdminController extends BaseController {
 
     }
 
+    /**
+     * Funcion para cerrar session de un usuario administrador
+     * Elimina la variables de session y redirecciona
+     * a la funcion getLoginAdmin
+     */
     public function getLogout()
     {
         session_destroy();
