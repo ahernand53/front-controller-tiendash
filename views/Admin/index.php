@@ -1,4 +1,4 @@
-html<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +8,6 @@ html<!doctype html>
     <title>Document</title>
 </head>
 <body>
-
+    <h2>Hello admin</h2>
 </body>
 </html>

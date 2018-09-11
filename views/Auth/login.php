@@ -23,7 +23,7 @@
         <input class="btn_submit" type="submit" value="Entrar">
         <a class="form_recover" href="">Olvido su contraseña?</a>
         <p>0</p>
-        <a class="form_register" href="/signUp">Crea una cuenta</a>
+        <a class="form_register" href="/register">Crea una cuenta</a>
     </form>
 </div>
 </body>

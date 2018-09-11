@@ -66,7 +66,7 @@ $map->get('index', '/', [
     'controller'    => 'App\Controllers\HomeController',
     'action'        => 'indexAction'
 ]);
-$map->get('loginForm', '/login', [
+$map->get('login', '/login', [
     'controller'    => 'App\Controllers\AuthController',
     'action'        => 'getLogin'
 ]);
@@ -86,18 +86,24 @@ $map->post('auth', '/auth', [
 
 /*============ RUTAS DE ADMIN ============*/
 
-$map->get('loginAdmin', '/admin', [
+$map->get('admin.index', '/admin/home', [
+   'controller'     => 'App\Controllers\AdminController',
+   'action'         => 'getIndex',
+   'admin'           => true
+]);
+$map->get('admin.login', '/admin/login', [
     'controller'    => 'App\Controllers\AdminController',
-    'action'        => 'getAuthAdmin'
+    'action'        => 'getLoginAdmin'
 ]);
-$map->post('authAdmin', '/authAdmin', [
-
+$map->post('admin.auth', '/admin/auth', [
+    'controller'    => 'App\Controllers\AdminController',
+    'action'        => 'postAuthAdmin'
 ]);
-$map->get('addUser', '/users/add', [
+$map->get('admin.addUser', '/admin/users/add', [
     'controller'    => 'App\Controllers\UsersController',
     'action'        => 'getAddUser'
 ]);
-$map->post('saveUser', '/users/save', [
+$map->post('admin.saveUser', 'admin//users/save', [
     'controller'    => 'App\Controllers\UsersController',
     'action'        => 'postSaveUser'
 ]);
@@ -118,10 +124,14 @@ if (!$route) {
     $controllerName = $handlerData['controller'];
     $actionName = $handlerData['action'];
     $needsAuth = $handlerData['auth'] ?? false;
+    $justAdmin = $handlerData['admin'] ?? false;
 
     $sessionUserId = $_SESSION['userId'] ?? null;
+    $sessionAdminId = $_SESSION['adminId'] ?? null;
     if ($needsAuth && !$sessionUserId) {
         header('Location: /');
+    } elseif ($justAdmin && !$sessionAdminId){
+        header('Location: /admin/login');
     }
 
     $controller = new $controllerName;
@@ -135,7 +145,6 @@ if (!$route) {
     }
     http_response_code($response->getStatusCode());
     echo $response->getBody();*/
-
 
     /*===== ENVIANDO RESPUESTA =====*/
     echo $response;
