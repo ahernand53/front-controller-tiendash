@@ -11,6 +11,7 @@ class AdminController extends BaseController {
     public function getIndex()
     {
         $users = User::all();
+        $admins = AdminUser::all();
         include '../views/Admin/index.php';
     }
 

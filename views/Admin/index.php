@@ -23,12 +23,10 @@
 
     <div class="row">
 
-        <div class="col-2">
+        <p>
             <a class="btn btn-primary" data-toggle="collapse" href="#users" role="button" aria-expanded="false" aria-controls="users">Usuarios</a>
-        </div>
-        <div class="col-2">
             <a class="btn btn-primary" data-toggle="collapse" href="#admins" role="button" aria-expanded="false" aria-controls="users">Administradores</a>
-        </div>
+        </p>
 
         <div class="collapse" id="users">
             <div class="card card-body">
@@ -54,8 +52,35 @@
                             <td><?= $user->email; ?></td>
                             <td><?= $user->phone; ?></td>
                             <td><?= $user->address; ?></td>
-                            <td><a class="btn btn-warning" href="/admin/user/edit">Edit</a></td>
-                            <td><a class="btn btn-danger" href="/admin/user/delete">Delete</a></td>
+                            <td><a class="btn btn-warning" href="/admin/user/edit?<?= $user->id; ?>">Edit</a></td>
+                            <td><a class="btn btn-danger" href="/admin/user/delete?<?= $user->id; ?>">Delete</a></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="collapse" id="admins">
+            <div class="card card-body">
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Rol</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($admins as $admin): ?>
+                        <tr>
+                            <th scope="row"><?= $admin->id; ?></th>
+                            <td><?= $admin->name; ?></td>
+                            <td><?= $admin->lastName; ?></td>
+                            <td><?= $admin->email; ?></td>
+                            <td><?= $admin->rol; ?></td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>
