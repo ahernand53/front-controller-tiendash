@@ -3,12 +3,14 @@
 namespace App\Controllers;
 
 use App\Models\AdminUser;
+use App\Models\User;
 use Zend\Diactoros\Response\RedirectResponse;
 
 class AdminController extends BaseController {
 
     public function getIndex()
     {
+        $users = User::all();
         include '../views/Admin/index.php';
     }
 
@@ -17,9 +19,9 @@ class AdminController extends BaseController {
         include '../views/Admin/login.php';
     }
 
-    public function postAuthAdmin()
+    public function postAuthAdmin($request)
     {
-        $postData = $_POST;
+        $postData = $request->getParsedBody();
         $responseMessage = null;
 
         /*$user = AdminUser::where('email', $postData['email'])->first();

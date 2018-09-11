@@ -11,8 +11,61 @@
           crossorigin="anonymous">
 </head>
 <body>
-    <h2>Hello admin</h2>
-    <a href="/admin/logout">Cerrar Session</a>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-xs-4">
+            <h2>Hello admin</h2>
+        </div>
+        <div class="col-lg-4 col-md-4 col-xs-4">
+            <a class="btn btn-danger" href="/admin/logout">Cerrar Session</a>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-2">
+            <a class="btn btn-primary" data-toggle="collapse" href="#users" role="button" aria-expanded="false" aria-controls="users">Usuarios</a>
+        </div>
+        <div class="col-2">
+            <a class="btn btn-primary" data-toggle="collapse" href="#admins" role="button" aria-expanded="false" aria-controls="users">Administradores</a>
+        </div>
+
+        <div class="collapse" id="users">
+            <div class="card card-body">
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Direccion</th>
+                        <th scope="col">Editar</th>
+                        <th scope="col">Eliminar</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($users as $user): ?>
+                        <tr>
+                            <th scope="row"><?= $user->id; ?></th>
+                            <td><?= $user->name; ?></td>
+                            <td><?= $user->lastName; ?></td>
+                            <td><?= $user->email; ?></td>
+                            <td><?= $user->phone; ?></td>
+                            <td><?= $user->address; ?></td>
+                            <td><a class="btn btn-warning" href="/admin/user/edit">Edit</a></td>
+                            <td><a class="btn btn-danger" href="/admin/user/delete">Delete</a></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>

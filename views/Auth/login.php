@@ -16,17 +16,17 @@
             <img class="login_img" src="../images/logo.png">
         </a>
     </div>
-    <?php if(isset($message)): ?>
-        <div class="alert alert-primary" role="alert">
-            <?= $message; ?>
-        </div>
-    <?php endif; ?>
     <form class="login_form" method="post" action="/auth">
+        <?php if(isset($_GET['message'])): ?>
+            <p class="alert alert-danger" role="alert">
+                <?= $_GET['message']; ?>
+            </p>
+        <?php endif; ?>
         <input type="text" name="email" placeholder="&#128100; username@example.com" required autofocus>
         <input type="password" name="password" placeholder="&#X1F512; password" required >
         <input class="btn_submit" type="submit" value="Entrar">
         <a class="form_recover" href="">Olvido su contraseña?</a>
-        <p>0</p>
+        <p>O</p>
         <a class="form_register" href="/register">Crea una cuenta</a>
     </form>
 </div>

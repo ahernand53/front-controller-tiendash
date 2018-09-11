@@ -16,8 +16,24 @@
 
 <body>
   <div class="container">
-      <h2>Welcome to Index</h2>
-      <a href="/login">Iniciar session</a>
+      <div class="row">
+          <div class="col-lg-4 col-md-4 col-xs-12">
+              <h2>Welcome to Index</h2>
+          </div>
+            <?php var_dump(password_hash('123456', PASSWORD_DEFAULT)); ?>
+          <?php if (!isset($_SESSION['userId'])): ?>
+              <a class="btn btn-primary" href="/login">Iniciar Session</a>
+          <?php else: ?>
+              <a class="btn btn-danger" href="/logout">Cerrar Session</a>
+          <?php endif; ?>
+      </div>
+
+      <div class="row">
+          <div class="col-lg-4 col-md-4 col-xs-12">
+              <a class="btn btn-primary" href="/admin/login">Panel Administrativo</a>
+          </div>
+      </div>
+
   </div>
 
   <!-- Optional JavaScript -->
