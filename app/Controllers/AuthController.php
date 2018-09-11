@@ -13,26 +13,20 @@ class AuthController extends BaseController {
     public function postLogin($request) {
         $postData = $request->getParsedBody();
         $responseMessage = null;
-
-        /*$user = User::where('email', $postData['email'])->first();
+        var_dump($postData);
+        $user = User::where('email', $postData['email'])->first();
         if($user) {
             if (password_verify($postData['password'], $user->password)) {
                 $_SESSION['userId'] = $user->id;
                 header('Location: /');
+                exit;
             } else {
                 $responseMessage = 'Bad credentials';
             }
         } else {
             $responseMessage = 'Bad credentials';
-        }*/
-
-        if (password_verify($postData['password'], password_hash('123456', PASSWORD_DEFAULT))) {
-            $_SESSION['userId'] = 2;
-            header('Location: /');
-            exit;
-        } else {
-            $responseMessage = 'Bad credentials';
         }
+
 
         header('Location: /login?message='. $responseMessage);
 
