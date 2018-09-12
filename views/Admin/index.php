@@ -47,6 +47,7 @@
                     </tr>
                     </thead>
                     <tbody>
+
                     <?php foreach ($users as $user): ?>
                         <tr>
                             <th scope="row"><?= $user->id; ?></th>
@@ -54,7 +55,7 @@
                             <td><?= $user->lastName; ?></td>
                             <td><?= $user->email; ?></td>
                             <td><?= $user->phone; ?></td>
-                            <td><?= $user->address; ?></td>
+                            <td><?= $user->address;?></td>
                             <td><a class="btn btn-outline-warning" href="/admin/user/edit?<?= $user->id; ?>">&#x0270D</a></td>
                             <td><a class="btn btn-outline-danger" href="/admin/user/delete?<?= $user->id; ?>">&#10060</a></td>
                         </tr>

@@ -52,10 +52,4 @@ class AuthController extends BaseController {
         header('Location: /login');
     }
 
-    /**
-     *
-     */
-    public function getSignUp() {
-        include '../views/Auth/register.php';
-    }
 }
