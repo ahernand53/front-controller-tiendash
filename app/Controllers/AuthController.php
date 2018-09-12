@@ -5,12 +5,23 @@ use App\Models\User;
 use Respect\Validation\Validator as v;
 use Zend\Diactoros\Response\RedirectResponse;
 
+/**
+ * Class AuthController
+ * @package App\Controllers
+ */
 class AuthController extends BaseController {
+    /**
+     *
+     */
     public function getLogin() {
         include '../views/Auth/login.php';
     }
 
-    public function postLogin($request) {
+    /**
+     * @param $request
+     */
+    public function postLogin($request)
+    {
         $postData = $request->getParsedBody();
         $responseMessage = null;
         var_dump($postData);
@@ -32,12 +43,13 @@ class AuthController extends BaseController {
 
     }
 
-    public function getLogout() {
+    /**
+     *
+     */
+    public function getLogout()
+    {
         unset($_SESSION['userId']);
         header('Location: /login');
     }
 
-    public function getSignUp() {
-        include '../views/Auth/register.php';
-    }
 }

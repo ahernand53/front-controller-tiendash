@@ -16,15 +16,15 @@
             <img class="login_img" src="../images/logo.png">
         </a>
     </div>
-    <form class="form_reg">
-        <input class="input" type="text" placeholder="&#128113; Nombres" required autofocus>
-        <input class="input" type="text" placeholder="&#128113; Apellidos" required autofocus>
-        <input class="input" type="email" placeholder="&#128231; username@example.com" required>
-        <input class="input" type="password" placeholder="&#128274; Pasword" required>
-        <input class="input" type="date" placeholder="&#128198; dd/mm/aaaa" required autofocus>
-        <input class="input" type="tel" placeholder="&#128222; 123456789" required>
-        <input class="input" type="text" placeholder="&#127968; Direccion" required>
-        <input class="input" type="text" placeholder="&#128179; 123456789" required>
+    <form class="form_reg" method="post" action="/register/user">
+        <input class="input" type="text" name="name" placeholder="&#128113; Nombres" required autofocus>
+        <input class="input" type="text" name="lastName" placeholder="&#128113; Apellidos" required autofocus>
+        <input class="input" type="email" name="email" placeholder="&#128231; username@example.com" required>
+        <input class="input" type="password" name="password" placeholder="&#128274; Pasword" required>
+        <input class="input" type="date" name="date" placeholder="&#128198; dd/mm/aaaa" required autofocus>
+        <input class="input" type="tel" name="phone" placeholder="&#128222; 123456789" required>
+        <input class="input" type="text" name="address" placeholder="&#127968; Direccion" required>
+        <input class="input" type="text" name="card" placeholder="&#128179; 123456789" required>
         <div class="btn_form">
             <input class="btn_submit" type="submit" value="Registar">
             <input class="btn_reset" type="reset" value="Limpiar">

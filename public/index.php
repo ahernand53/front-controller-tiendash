@@ -75,8 +75,12 @@ $map->get('logout', '/logout', [
     'action'        => 'getLogout'
 ]);
 $map->get('register', '/register', [
-    'controller'    => 'App\Controllers\AuthController',
-    'action'        => 'getSignUp'
+    'controller'    => 'App\Controllers\UsersController',
+    'action'        => 'getRegister'
+]);
+$map->post('registerUser', '/register/user', [
+    'controller'    => 'App\Controllers\UsersController',
+    'action'        => 'postRegister'
 ]);
 $map->post('auth', '/auth', [
     'controller'    => 'App\Controllers\AuthController',
